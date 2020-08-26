@@ -14,33 +14,13 @@ class Forms extends React.Component {
     };
   }
 
-  //  executed when something changes in name input field
-  onNameChange = (e) => {
+  //  executed when something changes in input field
+  onChangeAll = (e) =>{
     this.setState({
-      name: e.target.value
+        [e.target.name] : e.target.value;
     });
-  };
+  }
 
-  //  executed when something changes in email input field
-  onEmailChange = (e) => {
-    this.setState({
-      email: e.target.value
-    });
-  };
-
-  //  executed when something changes in phone input field
-  onPhoneChange = (e) => {
-    this.setState({
-      phoneNumber: e.target.value
-    });
-  };
-
-  //  executed when something changes in password input field
-  onPasswordChange = (e) => {
-    this.setState({
-      password: e.target.value
-    });
-  };
 
   //  executed when something changes in gender select field
   onGenderChange = (e) => {
@@ -80,19 +60,22 @@ class Forms extends React.Component {
         <div className="form-container">
           <p className="title">-------- User Form -----------</p>
           <input
-            onChange={this.onNameChange}
+            onChange={this.onChangeAll}
+                  name="fullname"
             value={this.state.name}
             type="text"
             placeholder="Enter name"
           />
           <input
-            onChange={this.onEmailChange}
+            onChange={this.onChangeAll}
+                  name="email"
             value={this.state.email}
             type="email"
             placeholder="Enter Email"
           />
           <input
-            onChange={this.onPhoneChange}
+            onChange={this.onChangeAll}
+                        name="phone"
             value={this.state.phoneNumber}
             type="text"
             placeholder="Enter Phone number"
@@ -105,7 +88,8 @@ class Forms extends React.Component {
           </select>
 
           <input
-            onChange={this.onPasswordChange}
+            onChange={this.onChangeAll}
+            name="password"
             value={this.state.password}
             type="password"
             placeholder="Enter Password"
